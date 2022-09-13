@@ -10,6 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import django_heroku
+#Activate Django-Heroku for local postgres db
+#django_heroku.settings(locals())
+
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -75,8 +80,12 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd71q18u283vm70',
+        'USER': 'ripgopblwguwau',
+        'PASSWORD': 'bfedea1abbc887f60f060be87661e48a0409cb0e8135753eee96219495f45aa2',
+        'HOST': 'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com', 
+        'PORT': '5432',
     }
 }
 
