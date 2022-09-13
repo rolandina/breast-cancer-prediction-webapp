@@ -32,7 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'bcp-django.herokuapp.com'
+    'bcp-django.herokuapp.com',
+    'bcp-fast-api.herokuapp.com'
 ]
 
 
