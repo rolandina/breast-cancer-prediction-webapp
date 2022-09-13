@@ -30,7 +30,10 @@ SECRET_KEY = 'django-insecure-tua01d=bt57&g_j7-nino=h#!-4l8$gy-#s0irszvmemcqsq2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'bcp-django.herokuapp.com'
+]
 
 
 # Application definition
@@ -125,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-DISABLE_COLLECTSTATIC=1
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
