@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 import django_heroku
 #Activate Django-Heroku for local postgres db
 #django_heroku.settings(locals())
@@ -32,8 +33,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
+    '127.0.0.1',
     'bcp-django.herokuapp.com',
-    'bcp-fast-api.herokuapp.com'
+    'bcp-fast-api.herokuapp.com',
+    'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com'
+
 ]
 
 
@@ -46,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+       # own apps
+    'bcp',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +70,7 @@ ROOT_URLCONF = 'webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'bcp', 'templates'), os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,16 +89,25 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd71q18u283vm70',
-        'USER': 'ripgopblwguwau',
-        'PASSWORD': 'bfedea1abbc887f60f060be87661e48a0409cb0e8135753eee96219495f45aa2',
-        'HOST': 'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd71q18u283vm70',
+#         'USER': 'ripgopblwguwau',
+#         'PASSWORD': 'bfedea1abbc887f60f060be87661e48a0409cb0e8135753eee96219495f45aa2',
+#         'HOST': 'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com', 
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -128,10 +144,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+### static url for app
+STATIC_URL = '/static/'
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+##static files in the base directory used for __base.html
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

@@ -1,0 +1,128 @@
+/* slider */
+.sliderContainer {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* flex-start, flex-end, space-around, space-between */
+  /* align-items: stretch; /* flex-start, flex-end, stretch, baseline  */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* all labels */
+label {
+  font-weight: 500;
+  font-size: 10px;
+  float: center;
+  text-transform: uppercase;
+}
+
+.range.values {
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.range.values p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.small.text {
+  color: black;
+  opacity: 90%;
+  font-size: 11px;
+}
+
+.min-value {
+  text-align: left;
+}
+
+.max-value {
+  text-align: right;
+}
+
+.parameter.value {
+  line-height: 15px;
+  margin: 0px 0px;
+  padding: 0px;
+  text-align: left;
+}
+
+.parameter.value {
+  font-weight: 500;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(11, 129, 160) 60%,
+    rgb(214, 214, 214) 60%
+  );
+  outline: none;
+  opacity: 0.8;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 0px;
+  box-shadow: 0px 1px 2px 1px black;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2px;
+  height: 16px;
+  background: black;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 1.5px;
+  height: 14px;
+  background: red;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+/* hint to the labels */
+.hasHint + span {
+  display: none;
+}
+
+.showHint {
+  background-color: white;
+  color: black;
+  font-size: 10px;
+  z-index: +1;
+  opacity: 1;
+  padding: 5px;
+  margin-top: 1.3em;
+  position: absolute;
+  max-width: 200px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.result-card {
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  border-radius: 200px;
+  text-align: center;
+  display: flex;
+
+  background-color: #ffd124;
+}

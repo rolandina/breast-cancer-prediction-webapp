@@ -1,0 +1,226 @@
+{% extends '__base.html' %} {% block content %} {% load static %}
+<link
+  href="{% static 'bcp/css/slider.css' %}"
+  type="text/css"
+  rel="stylesheet"
+/>
+<link
+  href="{% static 'bcp/css/select.css' %}"
+  type="text/css"
+  rel="stylesheet"
+/>
+
+<header>
+  <h1>Breast Cancer Prediction</h1>
+  <p>
+    This simulator predict the probability of the death of the patients with
+    breast cancer.
+  </p>
+</header>
+
+<nav class="topnav">
+  <a href="#"> Simulator </a>
+  <a href="#"> Models Description</a>
+  <a href="#"> Data explained</a>
+</nav>
+
+<div class="parameters">
+  <h3>Set parameters</h3>
+  <form action="www.google.com">
+    <p>Patient personal data:</p>
+
+    <!-- slider age -->
+    <label for="age">Age</label>
+    <div class="sliderContainer">
+      <input
+        type="range"
+        min="18"
+        max="80"
+        value="45"
+        step="1"
+        id="age"
+        class="slider"
+      />
+      <div for="age" class="range values">
+        <p class="small text min-value">18</p>
+        <p class="small text max-value">80</p>
+      </div>
+      <p class="parameter value small text">
+        Value: <span id="ageValue"> </span>
+      </p>
+    </div>
+
+    <!-- marital status -->
+    <label for="maritalStatus">Marital status</label>
+    <div class="select">
+      <select id="maritalStatus" name="maritalStatus">
+        <option value="Single ">single</option>
+        <option value="Married">married</option>
+        <option value="Separated">separated</option>
+        <option value="Divorced">divorced</option>
+        <option value="Widowed">widowed</option>
+      </select>
+    </div>
+
+    <!-- race -->
+    <label for="race">Race</label>
+    <div class="select">
+      <select id="race" name="race">
+        <option value="White">white</option>
+        <option value="Black">black</option>
+        <option value="Other">other</option>
+      </select>
+    </div>
+
+    <p>Cancer details:</p>
+
+    <!-- slider age -->
+    <label for="tumorSize">Tumor size</label>
+    <div class="sliderContainer">
+      <input
+        type="range"
+        min="1"
+        max="140"
+        value="25"
+        step="1"
+        id="tumorSize"
+        class="slider"
+      />
+      <div for="tumorSize" class="range values">
+        <p class="small text min-value">1</p>
+        <p class="small text max-value">140</p>
+      </div>
+      <p class="parameter value small text">
+        Value: <span id="tumorSizeValue"> </span>
+      </p>
+    </div>
+
+    <!-- T stage -->
+    <label for="tstage">T stage</label>
+    <div class="select">
+      <select id="tstage" name="tstage">
+        <option value="T1">T1</option>
+        <option value="T2">T2</option>
+        <option value="T3">T3</option>
+        <option value="T4">T4</option>
+      </select>
+    </div>
+
+    <!-- N stage -->
+    <label for="nstage">N stage</label>
+    <div class="select">
+      <select id="nstage" name="nstage">
+        <option value="N1">N1</option>
+        <option value="N2">N2</option>
+        <option value="N3">N3</option>
+      </select>
+    </div>
+
+    <!-- A stage -->
+    <label for="astage">A stage</label>
+    <div class="select">
+      <select id="astage" name="astage">
+        <option value="Regional">Regional</option>
+        <option value="Distant">Distant</option>
+      </select>
+    </div>
+
+    <!-- Progesterone status -->
+    <label for="progesterone">Progesterone status</label>
+    <div class="select">
+      <select id="progesterone" name="progesterone">
+        <option value="Positive">positive</option>
+        <option value="Negative">negative</option>
+      </select>
+    </div>
+
+    <!-- Estrogen status -->
+    <label for="estrogen">Estrogen status</label>
+    <div class="select">
+      <select id="estrogen" name="estrogen">
+        <option value="Positive">positive</option>
+        <option value="Negative">negative</option>
+      </select>
+    </div>
+
+    <!-- Grade -->
+    <label for="grade">Grade</label>
+    <div class="select">
+      <select id="grade" name="grade">
+        <option value="1">I</option>
+        <option value="2">II</option>
+        <option value="3">III</option>
+        <option value=" anaplastic; Grade IV">IV</option>
+      </select>
+    </div>
+
+    <!-- slider nodeExamined -->
+    <label for="nodeExamined">Regional Node Examined</label>
+    <div class="sliderContainer">
+      <input
+        type="range"
+        min="1"
+        max="61"
+        value="1"
+        step="1"
+        id="nodeExamined"
+        class="slider"
+      />
+      <div for="nodeExamined" class="range values">
+        <p class="small text min-value">1</p>
+        <p class="small text max-value">61</p>
+      </div>
+      <p class="parameter value small text">
+        Value: <span id="nodeExaminedValue"> </span>
+      </p>
+    </div>
+
+    <!-- slider nodeRate -->
+    <label for="nodeRate">Positive Node Rate</label>
+    <i class="hasHint fa fa-question-circle-o" aria-hidden="true"></i>
+    <span class="hint" for="nodeRate">
+      It is the ratio of the positive regional nodes to the total regional node
+      examined.
+    </span>
+    <div class="sliderContainer">
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+        step="1"
+        id="nodeRate"
+        class="slider"
+      />
+      <div for="nodeRate" class="range values">
+        <p class="small text min-value">0</p>
+        <p class="small text max-value">100</p>
+      </div>
+      <p class="parameter value small text">
+        Value: <span id="nodeRateValue"> </span> %
+      </p>
+    </div>
+
+    <input type="submit" class="button" value="Submit" />
+  </form>
+</div>
+<div class="main">
+  <div class="result-card" id="prediction-result-card">
+    <h2 id="status"></h2>
+    <p><span id="proba"> </span> %</p>
+  </div>
+</div>
+<div class="siteAds"></div>
+
+<footer>
+  <h2>Footer</h2>
+</footer>
+
+<script
+  src="{% static 'bcp/js/custom-select.js' %}"
+  type="text/javascript"
+></script>
+
+<script src="{% static 'bcp/js/slider.js' %}" type="text/javascript"></script>
+
+{% endblock %}
