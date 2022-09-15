@@ -1,0 +1,52 @@
+:root {
+  --first-color-dark: #006778;
+  --first-color: #0093ab;
+  --first-color-light: #00afc1;
+  --second-color: #ffd124;
+
+  --background-color-light: #f5f5f5;
+  --background-color-dark: #e1e1e2;
+
+  --text-color-title: #353b3b;
+  --text-color-normal: #5c5e5e;
+  --select-border: var(--background-color-dark);
+  --select-focus: var(--first-color-dark);
+  --select-arrow: var(--first-color-light);
+}
+
+select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  // Additional resets for further consistency
+  background-color: white;
+  border: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  width: 100%;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select::-moz-range-thumb {
+  display: none;
+}
+
+select {
+  // ...existing styles
+  outline: none;
+}
+
+.select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 1;
+  background-color: white;
+}

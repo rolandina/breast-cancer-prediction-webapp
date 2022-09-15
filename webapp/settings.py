@@ -90,24 +90,25 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd71q18u283vm70',
-#         'USER': 'ripgopblwguwau',
-#         'PASSWORD': 'bfedea1abbc887f60f060be87661e48a0409cb0e8135753eee96219495f45aa2',
-#         'HOST': 'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com', 
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd33gls36304di4',
+        'USER': 'zjtucreihoqjyc',
+        'PASSWORD': '7ef5130f98b7f208b1b6106d19718312e5607a6aef59feafbfa0a9ee372f608d',
+        'HOST': 'ec2-34-252-216-149.eu-west-1.compute.amazonaws.com', 
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
@@ -147,7 +148,7 @@ USE_TZ = True
 ### static url for app
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-web')
 
 ##static files in the base directory used for __base.html
 STATICFILES_DIRS = [BASE_DIR / 'static']
