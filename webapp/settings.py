@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tua01d=bt57&g_j7-nino=h#!-4l8$gy-#s0irszvmemcqsq2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'webapp.urls'
@@ -148,10 +149,21 @@ USE_TZ = True
 ### static url for app
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static-web')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ##static files in the base directory used for __base.html
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+
+STATIC_HOST = "hhttps://bcp-django.herokuapp.com" if not DEBUG else ""
+STATIC_URL = STATIC_HOST + "/static/"
 
 
 # Default primary key field type
