@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tua01d=bt57&g_j7-nino=h#!-4l8$gy-#s0irszvmemcqsq2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -162,8 +162,8 @@ STORAGES = {
 }
 
 
-STATIC_HOST = "https://bcp-django.herokuapp.com" if not DEBUG else ""
-STATIC_URL = STATIC_HOST + "/static/"
+# STATIC_HOST = "https://bcp-django.herokuapp.com" if not DEBUG else ""
+# STATIC_URL = STATIC_HOST + "/static/"
 
 
 # Default primary key field type
