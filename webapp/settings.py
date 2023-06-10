@@ -162,7 +162,7 @@ STORAGES = {
 }
 
 
-STATIC_HOST = "hhttps://bcp-django.herokuapp.com" if not DEBUG else ""
+STATIC_HOST = "https://bcp-django.herokuapp.com" if not DEBUG else ""
 STATIC_URL = STATIC_HOST + "/static/"
 
 
