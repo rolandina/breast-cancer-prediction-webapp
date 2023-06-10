@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'bcp-django.herokuapp.com',
     'bcp-fast-api.herokuapp.com',
-    'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com'
+    'ec2-34-251-233-253.eu-west-1.compute.amazonaws.com'
 
 ]
 
@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd33gls36304di4',
-        'USER': 'zjtucreihoqjyc',
-        'PASSWORD': '7ef5130f98b7f208b1b6106d19718312e5607a6aef59feafbfa0a9ee372f608d',
-        'HOST': 'ec2-34-252-216-149.eu-west-1.compute.amazonaws.com', 
+        'NAME': 'd94e3h5ceerm0t',
+        'USER': 'pvkfekcthcvmlk',
+        'PASSWORD': 'eb9886d19481b33a0a9c11645c94264d23d7be50880fe9f77de6381358738322',
+        'HOST': 'ec2-34-251-233-253.eu-west-1.compute.amazonaws.com', 
         'PORT': '5432',
     }
 }
