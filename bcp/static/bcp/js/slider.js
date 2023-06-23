@@ -134,8 +134,8 @@ $(document).ready(() => {
 
     var m = "lgb1";
     var age = $("#age").val();
-    var ms = $("#maritalStatus").val();
-    var race = $("#race").val();
+    var ms = "Married";
+    var race = "White";
     var age = $("#age").val();
     var tumor_size = $("#tumorSize").val();
     var tstage = $("#tstage").val();
