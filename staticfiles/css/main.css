@@ -116,9 +116,30 @@ p {
 /* footer */
 
 footer {
+  background: var(--first-color-dark);
+  grid-area: footer;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+/* footer {
   grid-area: footer;
   background: var(--first-color-dark);
-}
+} */
 
 /* top navigation bar */
 nav {

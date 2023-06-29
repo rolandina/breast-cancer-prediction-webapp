@@ -169,7 +169,7 @@ $(document).ready(() => {
       $("#proba").text(Math.round(100 * pred_proba));
 
       if (pred !== "Alive") {
-        $("#prediction-result-card").css("background-color", "#e1e1e2");
+        $("#prediction-result-card").css("background-color", "#134786");
         $("#prediction-result-card").css("color", "white");
       } else {
         $("#prediction-result-card").css("background-color", "#ffd124");
