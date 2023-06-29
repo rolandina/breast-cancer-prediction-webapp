@@ -173,25 +173,39 @@ $(document).ready(() => {
       $("#status").text(pred);
       $("#proba").text(Math.round(100 * pred_proba));
 
-      let color1 = { r: 255, g: 209, b: 36 }; // Corresponding to #ffd124
-      let color2 = { r: 19, g: 71, b: 134 }; // Corresponding to #134786
-
-      // Compute the new color based on pred_proba
-      let newColor = {
-        r: color1.r * pred_proba,
-        g: color1.g * pred_proba,
-        b: (color2.b - color1.b) * pred_proba + color1.b,
-      };
-
-      // Convert to integer values
-      newColor.r = Math.floor(newColor.r);
-      newColor.g = Math.floor(newColor.g);
-      newColor.b = Math.floor(newColor.b);
+      let hue;
+      if (pred_proba < 0.5) {
+        // Map the range [0, 0.5) to [120, 60)
+        hue = 120 - pred_proba * 2 * 60;
+      } else {
+        // Map the range [0.5, 1] to [60, 0]
+        hue = 60 - (pred_proba - 0.5) * 2 * 60;
+      }
 
       $("#prediction-result-card").css(
         "background-color",
-        `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
+        `hsl(${hue}, 100%, 50%)`
       );
+
+      // let color1 = { r: 255, g: 209, b: 36 }; // Corresponding to #ffd124
+      // let color2 = { r: 19, g: 71, b: 134 }; // Corresponding to #134786
+
+      // // Compute the new color based on pred_proba
+      // let newColor = {
+      //   r: color1.r * pred_proba,
+      //   g: color1.g * pred_proba,
+      //   b: (color2.b - color1.b) * pred_proba + color1.b,
+      // };
+
+      // // Convert to integer values
+      // newColor.r = Math.floor(newColor.r);
+      // newColor.g = Math.floor(newColor.g);
+      // newColor.b = Math.floor(newColor.b);
+
+      // $("#prediction-result-card").css(
+      //   "background-color",
+      //   `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
+      // );
       $("#prediction-result-card").css("color", "white");
 
       // if (pred !== "Alive") {
