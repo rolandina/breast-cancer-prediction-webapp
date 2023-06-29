@@ -173,13 +173,13 @@ $(document).ready(() => {
       $("#status").text(pred);
       $("#proba").text(Math.round(100 * pred_proba));
 
-      let color1 = { r: 19, g: 71, b: 134 }; // Corresponding to #134786
-      let color2 = { r: 255, g: 209, b: 36 }; // Corresponding to #ffd124
+      let color1 = { r: 255, g: 209, b: 36 }; // Corresponding to #ffd124
+      let color2 = { r: 19, g: 71, b: 134 }; // Corresponding to #134786
 
       // Compute the new color based on pred_proba
       let newColor = {
-        r: (color2.r - color1.r) * pred_proba + color1.r,
-        g: (color2.g - color1.g) * pred_proba + color1.g,
+        r: color1.r * pred_proba,
+        g: color1.g * pred_proba,
         b: (color2.b - color1.b) * pred_proba + color1.b,
       };
 
