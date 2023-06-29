@@ -163,7 +163,12 @@ $(document).ready(() => {
       dataType: "json",
     }).done(function (json) {
       pred = json["prediction"];
-      pred_proba = json["pred_prob"];
+      if (pred !== "Alive") {
+        pred_proba = json["pred_prob"];
+      } else {
+        pred_proba = 1 - json["pred_prob"];
+      }
+
       console.log(pred);
       $("#status").text(pred);
       $("#proba").text(Math.round(100 * pred_proba));
