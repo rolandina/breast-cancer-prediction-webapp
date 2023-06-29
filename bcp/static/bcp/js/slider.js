@@ -173,13 +173,34 @@ $(document).ready(() => {
       $("#status").text(pred);
       $("#proba").text(Math.round(100 * pred_proba));
 
-      if (pred !== "Alive") {
-        $("#prediction-result-card").css("background-color", "#134786");
-        $("#prediction-result-card").css("color", "white");
-      } else {
-        $("#prediction-result-card").css("background-color", "#ffd124");
-        $("#prediction-result-card").css("color", "#353b3be");
-      }
+      let color1 = { r: 19, g: 71, b: 134 }; // Corresponding to #134786
+      let color2 = { r: 255, g: 209, b: 36 }; // Corresponding to #ffd124
+
+      // Compute the new color based on pred_proba
+      let newColor = {
+        r: (color2.r - color1.r) * pred_proba + color1.r,
+        g: (color2.g - color1.g) * pred_proba + color1.g,
+        b: (color2.b - color1.b) * pred_proba + color1.b,
+      };
+
+      // Convert to integer values
+      newColor.r = Math.floor(newColor.r);
+      newColor.g = Math.floor(newColor.g);
+      newColor.b = Math.floor(newColor.b);
+
+      $("#prediction-result-card").css(
+        "background-color",
+        "rgb(${newColor.r}, ${newColor.g}, ${newColor.b})"
+      );
+      $("#prediction-result-card").css("color", "white");
+
+      // if (pred !== "Alive") {
+      //   $("#prediction-result-card").css("background-color", "#134786");
+      //   $("#prediction-result-card").css("color", "white");
+      // } else {
+      //   $("#prediction-result-card").css("background-color", "#ffd124");
+      //   $("#prediction-result-card").css("color", "#353b3be");
+      // }
       $("#prediction-result-card").fadeIn();
     });
   });
