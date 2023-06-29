@@ -190,7 +190,7 @@ $(document).ready(() => {
 
       $("#prediction-result-card").css(
         "background-color",
-        "rgb(${newColor.r}, ${newColor.g}, ${newColor.b})"
+        `rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
       );
       $("#prediction-result-card").css("color", "white");
 
